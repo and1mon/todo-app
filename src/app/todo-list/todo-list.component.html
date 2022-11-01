@@ -1,0 +1,7 @@
+<h1>Todo-List-Name</h1>
+<div id="addTodo">
+    <input type="text" placeholder="Neues Todo..." [(ngModel)]="inputField">
+    <button (click)="addTodo()">+</button>
+</div>
+<div id="list-body"></div>
+<app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
