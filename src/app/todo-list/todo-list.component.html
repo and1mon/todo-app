@@ -4,4 +4,4 @@
     <button (click)="addTodo()">+</button>
 </div>
 <div id="list-body"></div>
-<app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
+<app-todo-item *ngFor="let todo of allTodos$ | async" [todo]="todo"></app-todo-item>
