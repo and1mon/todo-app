@@ -1,7 +1,17 @@
-<h1>Todo-List-Name</h1>
-<div id="addTodo">
-    <input type="text" placeholder="Neues Todo..." [(ngModel)]="inputField">
-    <button (click)="addTodo()">+</button>
+<h1>TO DO:</h1>
+
+<div id="list-container">
+    <div id="list-head">
+        <input id="todo-input" type="text" placeholder="New Todo..." [(ngModel)]="inputField" (keydown.enter)="addTodo()">
+        <button (click)="addTodo()" id="add-todo">+</button>
+    </div>
+    <div class="divider"></div>
+    <div id="list-body">
+        <ul>
+            <app-todo-item *ngFor="let todo of allTodos$ | async" [todo]="todo" (delete)="removeTodo($event)" id="todo-item">
+            </app-todo-item>
+            <p *ngIf="todoCount <= 0" id="noTodosText">Add a new Todo by entering a task and hitting enter or the + button above!</p>
+        </ul>
+    </div>
+    <div class="divider"  *ngIf="todoCount > 0"></div>
 </div>
-<div id="list-body"></div>
-<app-todo-item *ngFor="let todo of allTodos$ | async" [todo]="todo" (delete)="removeTodo($event)"></app-todo-item>
