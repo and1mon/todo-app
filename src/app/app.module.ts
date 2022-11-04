@@ -9,6 +9,8 @@ import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './state/todos/todo.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { TodoEffects } from './state/todos/todo.effects';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { environment } from 'src/environments/environment';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    EffectsModule.forRoot([TodoEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

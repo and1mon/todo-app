@@ -17,7 +17,7 @@ export class TodoListComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store.dispatch(loadTodos());
+   this.store.dispatch(loadTodos());
   }
 
   addTodo() {
@@ -26,11 +26,10 @@ export class TodoListComponent implements OnInit {
     }
 
     this.store.dispatch(addTodo({ task: this.inputField }));
-
     this.inputField = '';
   }
 
-  removeTodo(todo: Todo) {
-    this.store.dispatch(removeTodo({ id: todo.id }));
+  removeTodo(id: string) {
+    this.store.dispatch(removeTodo({ id: id }));
   }
 }

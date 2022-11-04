@@ -7,7 +7,7 @@ export const addTodo = createAction(
 );
 
 export const removeTodo = createAction(
-    "[Todo Page] Add Todo",
+    "[Todo Page] Remove Todo",
     props<{ id: string }>()
 );
 
