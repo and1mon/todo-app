@@ -9,7 +9,7 @@
     <div id="list-body">
         <ul cdkDropList (cdkDropListDropped)="drop($event)">
             <div *ngFor="let todo of allTodos$ | async" id="todo-item" cdkDrag>
-                    <img src="../../assets/img/drag_icon.svg" id="dragBar" class="dragBar" cdkDragHandle>
+                    <img src="assets/img/drag_icon.svg" id="dragBar" class="dragBar" cdkDragHandle>
                     <li> {{ todo.task }} </li>
                     <button id="deleteTodo" class="deleteTodo" (click)="removeTodo(todo.id)">✔</button>
             </div>
