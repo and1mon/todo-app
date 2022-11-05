@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './state/todos/todo.reducer';
@@ -11,12 +10,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoEffects } from './state/todos/todo.effects';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoItemComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +26,7 @@ import { TodoEffects } from './state/todos/todo.effects';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([TodoEffects]),
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,7 +20,7 @@ export const loadTodosSuccess = createAction(
     props<{ todos: Todo[] }>()
 );
 
-export const loadTodosFailure = createAction(
-    "[Todo API] Todo Load Failure",
-    props<{ error: string }>()
-)
+export const moveTodo = createAction(
+    "[Todo Page] Move Todo",
+    props<{ prevIndex: number, newIndex: number }>()
+);

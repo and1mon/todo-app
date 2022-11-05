@@ -14,6 +14,11 @@ ul{
     box-shadow: 0 0 20px 1px rgb(255, 255, 255);
 }
 
+#headline{
+    padding-top: 10vh;
+    color: white;
+}
+
 #list-container{
     width: 60%;
     max-width: 800px;
@@ -32,8 +37,6 @@ ul{
     font-size: 1.4rem;
 }
 
-
-
 #todo-input:focus-visible, #todo-input:hover{
     outline: none;
     border-color: #0077ff;
@@ -50,8 +53,8 @@ ul{
 }
 
 #add-todo:hover{
-    border-color: black;
-    background-color: black;
+    border-color: #0077ff;
+    background-color: #0077ff;
     color: white;
 }
 
@@ -71,7 +74,6 @@ ul{
 }
 
 #todo-item{
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,8 +84,6 @@ ul{
     border-right: 1px solid rgba(255,255,255,0.2);
     border-bottom: 1px solid rgba(255,255,255,0.2);
     box-shadow: #00000030 0px 0px 4px 1px;
-    transition: 0.5s;
-    z-index: 2;
 }
 
 #todo-item:hover{
@@ -97,8 +97,42 @@ ul{
     color: white;
 }
 
+#todo-item li{
+    margin: 0;
+    flex: 1;
+    padding: 0 0.5rem;
+    overflow: hidden;
+    color: white;
+}
+
+#dragBar{
+    height: 2rem;
+    padding: 0.5rem;
+    opacity: 0.2;
+}
+
+#dragBar:hover{
+    opacity: 0.7;
+    cursor: grab;
+}
+
+#deleteTodo{
+    height: 3rem;
+    width:3rem;
+    border-radius: 0 .5rem .5rem 0;
+    background-color: transparent;
+}
+
+#deleteTodo:hover{
+    color: #0077ff;
+}
+
 
 @media (max-width: 700px) {
+    #headline{
+        padding-top: 1vh;
+    }
+
     #list-container{
         width: 90%;
         height: 85%;

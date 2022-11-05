@@ -1,9 +1,10 @@
 import { state } from "@angular/animations";
+import { moveItemInArray } from "@angular/cdk/drag-drop";
 import { identifierName } from "@angular/compiler";
 import { discardPeriodicTasks } from "@angular/core/testing";
 import { createReducer, on } from "@ngrx/store";
 import { Todo } from "src/app/services/todo-list.service";
-import { addTodo, loadTodos, loadTodosFailure, loadTodosSuccess, removeTodo } from "./todo.actions";
+import { addTodo, loadTodos, loadTodosSuccess, moveTodo, removeTodo } from "./todo.actions";
 
 export interface TodoState {
     todos: Todo[];
@@ -38,9 +39,14 @@ export const todoReducer = createReducer(
         status: "success"
     })),
 
-    on(loadTodosFailure, (state, { error }) => ({
+    on(moveTodo, (state, { prevIndex, newIndex }) => ({
         ...state,
-        error: error,
-        status: "error"
+        todos: moveTodoItem([...state.todos], prevIndex, newIndex)
     })),
+    
 )
+
+function moveTodoItem(todos: Todo[], prevIndex: number, newIndex: number) {
+    moveItemInArray(todos, prevIndex, newIndex);
+    return todos;
+}

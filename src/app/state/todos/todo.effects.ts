@@ -5,6 +5,7 @@ import {
   removeTodo,
   loadTodos,
   loadTodosSuccess,
+  moveTodo,
 } from './todo.actions';
 import { TodoService } from '../../services/todo-list.service';
 import { of, from } from 'rxjs';
@@ -39,7 +40,7 @@ export class TodoEffects {
   saveTodos$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(addTodo, removeTodo),
+        ofType(addTodo, removeTodo, moveTodo),
         withLatestFrom(this.store.select(selectAllTodos)),
         tap(([action, todos]) => this.todoService.saveTodos(todos))
       ),
